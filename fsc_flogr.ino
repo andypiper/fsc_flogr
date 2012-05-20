@@ -40,6 +40,7 @@ void getgps(TinyGPS &gps);
 char s[32];
 
 
+
 // initialize two serial ports; the standard hardware serial port 
 // (Serial()) and another serial port (NewSoftSerial()) for GPS
 void setup()
@@ -94,7 +95,6 @@ void setup()
 // then jumps to the getgps() function.
 void loop()
 {
-
   // read the state of the pushbutton value:
   buttonState = digitalRead(buttonPin);
   Serial.println(buttonState);
@@ -109,14 +109,14 @@ void loop()
         int c = uart_gps.read();    // load data into a variable
         //Serial.write(c); // uncomment this line to see raw GPS data
         if (gps.encode(c)) // Did a new valid sentence come in?
-          getgps(gps);
+          getdata(gps);
       }
     }
   }
 }
 
 // The getgps function will get and print values from the NMEA structure
-void getgps(TinyGPS &gps)
+void getdata(TinyGPS &gps)
 {
   // To see the complete list of functions see keywords.txt file in 
   // the TinyGPS and NewSoftSerial libs.
@@ -169,7 +169,7 @@ void getgps(TinyGPS &gps)
     sc = "0" + sc; 
   }
 
-  // Define the variables that will be used
+  // Define the lat/lon variables
   float latitude, longitude;
   unsigned long age;
   gps.f_get_position(&latitude, &longitude, &age);
@@ -199,8 +199,8 @@ void getgps(TinyGPS &gps)
   // if the file is available, write to it:
   if (dataFile) {
     dataFile.print(dtostrf(year, 4, 0, s)); //year
-    //dataFile.print(mo); //month
-    //dataFile.print(da); //day
+    dataFile.print(mo); //month
+    dataFile.print(da); //day
     dataFile.print("T");
     dataFile.print(hr); //hour
     dataFile.print(mn); //min
