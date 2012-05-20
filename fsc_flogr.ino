@@ -224,9 +224,5 @@ void getdata(TinyGPS &gps)
     Serial.println("error opening datalog.txt");
   } 
 
-  // print statistics on the NMEA sentences.
-  //unsigned long chars;
-  //unsigned short sentences, failed_checksum;
-  //gps.stats(&chars, &sentences, &failed_checksum);
 }
 
