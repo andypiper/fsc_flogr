@@ -97,9 +97,8 @@ void loop()
 {
   // read the state of the pushbutton value:
   buttonState = digitalRead(buttonPin);
-  Serial.println(buttonState);
 
-  if (buttonState == HIGH) {     
+  if (buttonState == HIGH) {     // if button is pressed
 
     // For one second parse GPS data and report some key values
     for (unsigned long start = millis(); millis() - start < 1000;)
@@ -108,7 +107,7 @@ void loop()
       {
         int c = uart_gps.read();    // load data into a variable
         //Serial.write(c); // uncomment this line to see raw GPS data
-        if (gps.encode(c)) // Did a new valid sentence come in?
+        if (gps.encode(c)) // if a new valid sentence arrived
           getdata(gps);
       }
     }
