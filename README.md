@@ -37,6 +37,11 @@ It is clear that this is an incomplete proof-of-concept and could be considerabl
  * more code optimisation - the sketch is approaching the limits of what can be uploaded to an Uno board easily.
  * data analysis tools - both local and and webapp-based - could be developed to visualise and explore the recorded data points.
 
+### Additional information ###
+
+ * [podcast interview about the project](http://soundcloud.com/fschack/andy-piper-at-fsc-hack-day-4) and idea from #fschack day 1
+ * [final presentation](http://www.slideshare.net/andypiper/robust-field-data-logger-field-studies-hackday)
+
 ### Acknowledgements ###
 
 [Andy Piper (@andypiper)](http://twitter.com/andypiper) wrote the code, so it's largely his fault.
