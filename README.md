@@ -13,11 +13,17 @@ A number of hardware components are used in the prototype:
  * BMP085 barometric sensor
  * SD card breakout board
 
+Note that an SD card must be present when the Arduino sketch starts, or nothing will happen (as there is nowhere for the data to be written).
+
 ## Design information ##
 
-A Fritzing breadboard wiring diagram is included, in the design subdirectory. Note that not all of the components (specifically the Sparkfun SD card breakout board) are represented in Fritzing so wiring information is included in a sticky note instead with an approximate equivalent shown on the breadboard.
+A Fritzing breadboard wiring diagram is included, in the `design` subdirectory. Note that not all of the components (specifically the Sparkfun SD card breakout board) are represented in Fritzing so wiring information is included in a sticky note instead with an approximate equivalent shown on the breadboard.
 
 ![wiring diagram](https://github.com/andypiper/fsc_flogr/raw/master/design/floggr_bb.png)
+
+## Output ##
+
+A small sample data file (CSV format) is included in the `output` directory, collected on the final prototype and used to demonstrate visualisation at #fschack during the final presentations.
 
 ## Future ##
 
@@ -28,6 +34,7 @@ It is clear that this is an incomplete proof-of-concept and could be considerabl
  * a more elegant boxed version could be produced * it would be possible to add a simple LCD display to confirm that data has been recorded, or display current sensor values
  * a port (3.5mm jack?) could be added to enable temperature and soil analysis probes to be attached. 
  * although point-in-time data recording is a design point of the current design, by putting a simple config.txt file onto the SD card and having that read at startup, behaviour could be modified so that the logger did run continuously, log at configurable intervals, only log on demand, etc.
+ * more code optimisation - the sketch is approaching the limits of what can be uploaded to an Uno board easily.
  * data analysis tools - both local and and webapp-based - could be developed to visualise and explore the recorded data points.
 
 ### Acknowledgements ###
